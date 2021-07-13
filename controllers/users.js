@@ -87,7 +87,11 @@ async function login(req, res) {
         name: user.name,
       },
     };
-    nodemailer.sendMail(emailData);
+    nodemailer.sendMail(emailData, (err, suc) => {
+      if (err) {
+        console.log(err);
+      }
+    });
 
     const { password: pswFromDb, ...userData } = user;
 
