@@ -85,6 +85,7 @@ async function login(req, res) {
       template: "login",
       context: {
         name: user.name,
+        email,
       },
     };
     nodemailer.sendMail(emailData);
